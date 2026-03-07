@@ -15,8 +15,12 @@ const careerRoutes = require('./routes/careerRoutes');
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// IMPORTANT: Updated CORS configuration
+app.use(cors({
+  origin: ['https://career-assessment-frontend.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
