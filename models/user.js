@@ -3,23 +3,17 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Name is required']
+    required: true
   },
   email: {
     type: String,
-    required: [true, 'Email is required'],
+    required: true,
     unique: true,
     lowercase: true
   },
-  age: {
-    type: Number,
-    min: 10,
-    max: 100
-  },
-  educationLevel: {
+  password: {
     type: String,
-    enum: ['8th', '9th', '10th', '11th', '12th', 'College'],
-    default: '10th'
+    required: true
   },
   createdAt: {
     type: Date,

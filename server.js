@@ -12,12 +12,13 @@ const assessmentRoutes = require('./routes/assessmentRoutes');
 const questionRoutes = require('./routes/questionRoutes');
 const careerClusterRoutes = require('./routes/careerClusterRoutes');
 const careerRoutes = require('./routes/careerRoutes');
+const authRoutes = require('./routes/authRoutes');  // ← ADD THIS
 
 const app = express();
 
-// IMPORTANT: Updated CORS configuration
+// CORS
 app.use(cors({
-  origin: ['https://career-assessment-frontend.vercel.app', 'http://localhost:3000'],
+  origin: ['https://career-assessment-frontend-ten.vercel.app', 'http://localhost:3000'],
   credentials: true
 }));
 
@@ -35,6 +36,7 @@ app.use('/api/assessment', assessmentRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/clusters', careerClusterRoutes);
 app.use('/api/careers', careerRoutes);
+app.use('/api/auth', authRoutes);  // ← ADD THIS
 
 // Home route
 app.get('/', (req, res) => {
